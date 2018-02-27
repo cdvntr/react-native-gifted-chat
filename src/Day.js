@@ -19,10 +19,15 @@ export default function Day(
       <View style={[styles.container, containerStyle]}>
         <View style={wrapperStyle}>
           <Text style={[styles.text, textStyle]}>
-            {moment(currentMessage.createdAt)
+            {/*moment(currentMessage.createdAt)
               .locale(context.getLocale())
               .format(dateFormat)
-              .toUpperCase()}
+              .toUpperCase()*/}
+            {moment(currentMessage.createdAt).locale(context.getLocale()).calendar(null, {
+              sameDay: '[Bugün]',
+              lastDay: '[Dün]',
+              sameElse: 'll'
+            }).toUpperCase()}
           </Text>
         </View>
       </View>
