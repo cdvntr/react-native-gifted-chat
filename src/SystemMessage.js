@@ -9,7 +9,7 @@ export default function SystemMessage({ currentMessage, containerStyle, wrapperS
   return (
     <View style={[styles.container, containerStyle]}>
       <View style={[styles.wrapper, wrapperStyle]}>
-        <Text style={[styles.text, textStyle]}>{currentMessage.text}</Text>
+        {this.props.renderMessageText && this.props.renderMessageText()}
       </View>
     </View>
   );
@@ -45,4 +45,5 @@ SystemMessage.propTypes = {
   containerStyle: ViewPropTypes.style,
   wrapperStyle: ViewPropTypes.style,
   textStyle: Text.propTypes.style,
+  renderMessageText: PropTypes.func
 };
